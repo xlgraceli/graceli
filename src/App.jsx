@@ -27,6 +27,34 @@ function SmallIcon({ type }) {
   return <svg className={`small-icon small-icon-${type}`} viewBox="0 0 24 24" aria-hidden="true">{paths[type]}</svg>
 }
 
+function TreeLine() {
+  return <>
+    <svg className="tree-line tree-line-desktop" viewBox="0 0 1600 320" preserveAspectRatio="none" aria-hidden="true">
+      <g className="tree-grove">
+        <path className="tree-trunk" d="M76 320 95 127h22l21 193zm188 0 23-209h22l23 209zm191 0 20-164h19l23 164z"/>
+        <path className="tree-crown tree-crown-a" d="M45 146c-22-39 11-78 45-75 10-54 87-58 104-4 45 3 62 54 35 81 9 38-31 60-69 47-25 34-89 27-98-8-29 8-54-12-47-41-27-5-36-31-20-48 12-14 31-16 50-6z"/>
+        <path className="tree-crown tree-crown-b" d="M253 141c-19-31 4-63 31-66 6-44 71-50 86-8 36 0 48 40 27 62 8 30-23 48-53 38-19 27-69 22-78-6-23 7-43-10-38-32-22-4-30-24-17-38 11-11 26-13 42-5z"/>
+        <path className="tree-crown tree-crown-c" d="M442 174c-16-27 2-54 25-57 6-38 61-43 74-7 31 0 42 34 23 53 7 26-20 41-45 33-17 23-59 19-67-5-20 6-37-9-33-28-19-4-26-21-15-33 9-9 23-11 36-4z"/>
+      </g>
+      <g className="tree-grove tree-grove-right">
+        <path className="tree-trunk" d="m1080 320 22-174h20l22 174zm174 0 21-220h24l23 220zm192 0 22-158h20l21 158z"/>
+        <path className="tree-crown tree-crown-c" d="M1064 185c-18-29 3-59 29-62 7-42 68-47 82-7 35 0 47 37 26 58 7 28-22 45-50 36-18 25-65 21-74-6-21 6-40-9-36-30-21-4-28-23-16-36 10-10 25-12 39-5z"/>
+        <path className="tree-crown tree-crown-b" d="M1223 125c-20-33 5-66 34-69 7-47 76-52 91-8 38 1 51 42 29 65 8 32-24 50-56 40-20 29-72 24-81-7-24 7-45-10-40-34-23-4-31-25-18-40 11-11 27-13 44-5z"/>
+        <path className="tree-crown tree-crown-a" d="M1415 160c-23-38 9-76 43-77 9-53 85-59 104-8 44 2 60 52 34 80 10 36-29 59-67 47-25 33-87 28-97-7-29 8-53-12-47-40-26-5-35-31-19-48 12-13 30-16 49-6z"/>
+      </g>
+    </svg>
+    <svg className="tree-line tree-line-mobile" viewBox="0 0 430 230" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <g transform="translate(0 -103.5) scale(1 1.45)">
+      <path className="tree-trunk" d="m25 230 11-92h13l12 92zm86 0 10-72h11l10 72zm229 0 10-78h12l11 78zm62 0 10-98h13l12 98z"/>
+      <path className="tree-crown tree-crown-a" d="M8 144c-10-21 5-42 23-43 4-30 46-34 55-6 22 1 29 25 16 40 5 18-15 30-33 23-12 17-42 14-47-4-13 4-25-6-22-20-13-2-18-15-10-24 6-7 16-8 26-3z"/>
+      <path className="tree-crown tree-crown-b" d="M87 164c-11-19 3-39 21-40 4-28 42-31 51-6 20 0 27 23 15 36 4 17-14 27-30 21-11 15-38 13-43-4-12 4-22-5-20-18-12-3-16-14-9-22 6-7 15-8 23-3z"/>
+      <path className="tree-crown tree-crown-c" d="M286 160c-11-19 3-39 21-40 4-28 42-31 51-6 20 0 27 23 15 36 4 17-14 27-30 21-11 15-38 13-43-4-12 4-22-5-20-18-12-3-16-14-9-22 6-7 15-8 23-3z"/>
+      <path className="tree-crown tree-crown-a" d="M348 142c-12-21 5-42 23-43 5-30 47-34 56-6 22 1 30 25 17 40 5 18-15 30-33 23-13 17-43 14-48-4-13 4-25-6-22-20-13-2-18-15-10-24 6-7 16-8 26-3z"/>
+      </g>
+    </svg>
+  </>
+}
+
 function App() {
   const [open, setOpen] = useState([])
   const [front, setFront] = useState('')
@@ -228,11 +256,11 @@ function App() {
   }
 
   return <main className={dark ? 'desktop night' : 'desktop'} onPointerDown={(event) => { if (event.target === event.currentTarget) setFront('') }}>
-    <div className="desktop-wallpaper" aria-hidden="true"><div className="wallpaper-circle"/><div className="wallpaper-sparkle sparkle-one">✳</div><div className="wallpaper-sparkle sparkle-two">✿</div><div className="sky-stars">{skyStars.map(([x,y],i)=><i key={i} style={{left:`${x}%`,top:`${y}%`}} />)}</div><div className="string-lights">{Array.from({length:9},(_,i)=><i key={i}/>)}</div></div>
+    <div className="desktop-wallpaper" aria-hidden="true"><div className="wallpaper-circle"/><div className="wallpaper-sparkle sparkle-one">✳</div><div className="wallpaper-sparkle sparkle-two">✿</div><TreeLine/><div className="sky-stars">{skyStars.map(([x,y],i)=><i key={i} style={{left:`${x}%`,top:`${y}%`}} />)}</div><div className="string-lights">{Array.from({length:9},(_,i)=><i key={i}/>)}</div></div>
     <div className="mascot-wrap"><div className={`mascot-bubble ${mascotPhrase ? 'show' : ''}`} aria-live="polite">{mascotPhrase}</div><button className="theme-mascot" onClick={talkToMascot} aria-label={dark ? 'Talk to Melon' : 'Talk to Froggo'} title={dark ? 'Talk to Melon' : 'Talk to Froggo'}><img src={publicAsset(dark ? 'images/melon.png' : 'images/froggo.png')} alt="" /></button></div>
     <header className="desktop-top"><a href="#home" className="desktop-brand"><span>g.</span> grace’s little corner</a><div className="top-right"><button className={`theme-switch ${dark ? 'is-night' : 'is-day'}`} onClick={() => { playSound(); setMascotPhrase(''); window.clearTimeout(mascotPhraseTimer.current); setDark(!dark) }} aria-label={dark ? 'Switch to daylight theme' : 'Switch to night theme'} aria-pressed={dark} title={dark ? 'Switch to daylight' : 'Switch to night'}><span className="theme-switch-icon" aria-hidden="true">{dark ? <svg viewBox="0 0 24 24"><path d="M20.2 15.8A8.6 8.6 0 0 1 8.2 3.9 8.7 8.7 0 1 0 20.2 15.8Z"/><path d="m17.5 3 .6 1.8 1.9.7-1.9.6-.6 1.9-.7-1.9-1.8-.6 1.8-.7z"/></svg> : <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1.8v2.1m0 16.2v2.1M1.8 12h2.1m16.2 0h2.1M4.8 4.8l1.5 1.5m11.4 11.4 1.5 1.5m0-14.4-1.5 1.5M6.3 17.7l-1.5 1.5"/></svg>}</span><span className="theme-switch-copy"><small>THEME</small><b>{dark ? 'NIGHT' : 'DAYLIGHT'}</b></span><span className="theme-switch-track" aria-hidden="true"><i/></span></button><button onClick={() => { setSound(!sound); if (!sound) setTimeout(() => playSound(), 0) }} className="audio-control" aria-label={sound ? 'Sound effects on. Click to turn off.' : 'Sound effects off. Click to turn on.'} title="Sound effects: little clicks when you use the page"><span className="audio-symbol">{sound ? '◖))' : '◖'}</span><small>SFX</small></button><button className={`audio-control ${music ? 'music-on' : ''}`} onClick={toggleMusic} aria-label={music ? 'Background music on. Click to turn off.' : 'Background music off. Click to turn on.'} aria-pressed={music} title="Background music: a soft looping melody"><span className="audio-symbol">♫</span><small>MUSIC</small></button></div></header>
     <section className="desktop-icons" aria-label="Desktop apps">{['about','work','links','faq','fun'].map((id)=><button className={`desktop-icon ${front === id ? 'selected' : ''}`} key={id} onDoubleClick={() => openWindow(id)} onClick={() => openWindow(id)}><span><img src={iconPath(id)} alt="" /></span><b>{id === 'fun' ? 'fun stuff' : id}</b></button>)}</section>
-    <div className="desktop-welcome"><div className="welcome-sparkle">✳</div><p className="welcome-small">WELCOME TO MY LITTLE CORNER</p><h1>hi, I’m <em>Grace!</em></h1><p>computer engineering student<br/>who enjoys building software.</p><span className="welcome-hint">tap an app to peek inside <b>↖</b></span></div>
+    <div className="desktop-welcome"><div className="welcome-sparkle">✳</div><p className="welcome-small">WELCOME TO MY LITTLE CORNER</p><h1>hi, I’m <em>Grace!</em></h1><p>computer engineering student<br/>who enjoys building software.</p></div>
     {open.map((id) => {const config=windows[id];const pos=positions[id] || defaultPosition(id);const size=sizes[id] || {width:Math.min(config.width,window.innerWidth-20),height:Math.min(config.height,window.innerHeight-100)};return <section className={`app-window ${front===id?'in-front':''}`} key={id} style={{left:pos.x,top:pos.y,width:size.width,height:size.height,maxWidth:Math.max(280,window.innerWidth-pos.x-10),zIndex:front===id?20:10+open.indexOf(id)}} onPointerDown={() => setFront(id)} aria-label={config.title}><header className="window-title" onPointerDown={(event)=>startDrag(event,id)}><span className="window-app-icon"><img src={config.icon} alt="" /></span><span>{config.title}</span><span className="window-title-dots">✿ ✿ ✿</span><button className="window-close" onPointerDown={(event)=>event.stopPropagation()} onClick={()=>closeWindow(id)} aria-label="Close window">×</button></header><div className="window-body">{renderContent(id)}</div><footer className="window-status"><span>✿ &nbsp; grace’s desktop</span><span>1 item &nbsp;·&nbsp; happy day!</span></footer><button className="window-resize" onPointerDown={(event)=>startResize(event,id)} onKeyDown={(event)=>resizeWithKeys(event,id)} aria-label={`Resize ${config.title}`} title="Drag or use arrow keys to resize" /></section>})}
     <div className={`desktop-clock ${dark ? 'clock-night' : 'clock-day'}`}><span className="clock-icon">{dark ? '☾' : '☀'}</span><div><small>LOCAL TIME</small><b>{now.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit' })}</b><span>{now.toLocaleDateString('en-CA', { weekday: 'short', month: 'short', day: 'numeric' })} · {dark ? 'stargazing hours' : 'sunny day'}</span></div><i>✿</i></div>
     <footer className="dock"><div className="dock-apps">{['about','work','links','faq','fun'].map((id)=><button key={id} className={open.includes(id)?'active':''} onClick={()=>openWindow(id)} aria-label={`Open ${id}`} title={id}><img src={iconPath(id)} alt="" /></button>)}</div><span className="dock-divider"/><button className="dock-home" onClick={()=>{setOpen([]);playSound('close')}} aria-label="Return to desktop and close all windows" title="Return to desktop"><img src={publicAsset('icons/home.svg')} alt="" /></button><span className="dock-name">grace’s desktop</span></footer>
